@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { StyleSheet, View, Text, Dimensions, Image } from "react-native";
-import { AnimeApis } from "./api/index";
+import { AnimeApis } from "../api/index";
 
 const Inicio = () => {
   const [animeData, setAnimeData] = useState([]);
