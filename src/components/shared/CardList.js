@@ -20,7 +20,7 @@ const CardList = ({ animeData, navigation, callback }) => {
           <View>
             <TouchableOpacity
               style={styles.Card}
-              key={'i'}
+              key={i}
               onPress={() => {
                 navigation.navigate("Anime", { idAnime: item.mal_id });
               }}
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   images: {
     width: width * 0.35,
     height: 200,
-    margin: 10,
+    marginBottom: 5,
     alignSelf: "center",
     borderRadius: 5,
     position: "relative",

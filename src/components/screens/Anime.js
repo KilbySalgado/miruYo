@@ -31,11 +31,12 @@ const Anime = ({ navigation, route }) => {
   //Api que me devuelva solo el anime que quiero por medio del id
 
   return (
+    <ScrollView>
     <View style={styles.container}>
       {anime ? (
-        <ScrollView>
           <View style={styles.FormAnime}>
             <Image source={{ uri: anime.image_url }} style={styles.images} />
+            <View style={styles.card}>
             <View style={styles.titleForm}>
               <Text style={{ fontSize: 18, fontWeight: "bold" }}>
                 {anime.title}
@@ -46,7 +47,7 @@ const Anime = ({ navigation, route }) => {
               </Text>
               <Text>Rank: {anime.rank}</Text>
             </View>
-            <View style={{ padding: 25, textAlign: "justify" }}>
+            <View style={{ padding: 25, textAlign: "justify",}}>
               <Text>Synopsis:</Text>
               <Text>{anime.synopsis}</Text>
               <Button
@@ -58,14 +59,15 @@ const Anime = ({ navigation, route }) => {
                 }}
               />
             </View>
+            </View>
           </View>
-        </ScrollView>
       ) : (
         <View>
           <Text>No hay</Text>
         </View>
       )}
     </View>
+    </ScrollView>
   );
 };
 
@@ -76,7 +78,7 @@ const styles = StyleSheet.create({
   },
 
   images: {
-    width: width * 0.6,
+    width: width * 0.4,
     height: height * 0.4,
     justifyContent: "center",
     alignSelf: "center",
@@ -85,17 +87,25 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 4, height: 4 },
     shadowOpacity: 0.3,
     shadowRadius: 3.84,
+    margin: 10,
   },
   titleForm: {
     marginTop: 15,
     justifyContent: "center",
     alignSelf: "center",
     textAlign: "center",
+    backgroundColor: "#fff",
+    borderRadius: 10,
+    padding: 15,
   },
   FormAnime: {
     width: width,
     height: height,
   },
+  card: {
+    backgroundColor: "#ffc300",
+    borderRadius: 20,
+  }
 });
 
 export default Anime;
