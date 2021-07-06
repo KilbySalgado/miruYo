@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, View, Text, Image, ScrollView} from "react-native";
-import { AnimeApis } from "../api";
+import { AnimeApis } from "../../api";
+
 
 const Inicio = () => {
   const [animeData, setAnimeData] = useState([]);
@@ -19,7 +20,7 @@ const Inicio = () => {
             <View>
             {animeData.map((anime, id) => (
               <View style={styles.Card} key= {id} >
-                <Image source={{ uri: anime.image_url }} style={styles.images} />
+                <Image source={{ uri: anime.image_url }} style={styles.images} key={id}/>
                 <Text style={styles.titulo}>{anime.title}</Text>
                 <Text style={styles.puntuacion}>{anime.score}</Text>
               </View>

@@ -1,12 +1,7 @@
-import { StatusBar } from "expo-status-bar";
-import React from "react";
-import Inicio from "./src/componentes/Inicio";
-
+import React from 'react';
+import TabNav from './src/components/navigation/TabNavigation';
 export default function App() {
   return (
-    <>
-      <Inicio />
-      <StatusBar style="auto" />
-    </>
+   <TabNav/>
   );
 }
