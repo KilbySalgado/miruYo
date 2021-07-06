@@ -1,7 +1,8 @@
 import React from 'react';
-import TabNav from './src/components/navigation/TabNavigation';
+import StackNavigate from './src/components/navigation/StackNavigation';
+
 export default function App() {
   return (
-   <TabNav/>
+         <StackNavigate/>
   );
 }
