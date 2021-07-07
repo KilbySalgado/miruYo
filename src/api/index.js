@@ -47,3 +47,16 @@ export const AnimeTop = async () => {
     return console.log(error);
   }
 };
+
+//Se trae todos los personajes del anime en especifico
+export const AnimeCharacter = async (animeId) => {
+  try {
+    const endpoint = `https://api.jikan.moe/v3/anime/${animeId}/characters_staff`;
+    const response = await fetch(endpoint);
+    const data = await response.json();
+
+    return data.characters;
+  } catch (error) {
+    console.log(error);
+  }
+};

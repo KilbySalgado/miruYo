@@ -4,6 +4,7 @@ import Anime from "../screens/Anime";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import TabNav from "./TabNavigation";
+import CharacterAnime from "../screens/CharacterAnime";
 
 const Stack = createStackNavigator();
 
@@ -21,6 +22,11 @@ const StackNavigate = () =>{
           initialParams={{ idAnime: null }}
         />
         <Stack.Screen name="Anime" component={Anime} />
+        <Stack.Screen
+          name="Character"
+          component={CharacterAnime}
+          initialParams={{ idAnimeCharacter: null }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
     );

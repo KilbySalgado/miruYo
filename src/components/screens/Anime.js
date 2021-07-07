@@ -46,10 +46,6 @@ const Anime = ({ navigation, route }) => {
                 Score: {anime.score}
               </Text>
               <Text>Rank: {anime.rank}</Text>
-            </View>
-            <View style={{ padding: 25, textAlign: "justify",}}>
-              <Text>Synopsis:</Text>
-              <Text>{anime.synopsis}</Text>
               <Button
                 title="Personajes"
                 onPress={() => {
@@ -58,6 +54,10 @@ const Anime = ({ navigation, route }) => {
                   });
                 }}
               />
+            </View>
+            <View style={{ padding: 25, textAlign: "justify",}}>
+              <Text>Synopsis:</Text>
+              <Text>{anime.synopsis}</Text>
             </View>
             </View>
           </View>
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: "#ffc300",
     borderRadius: 20,
-  }
+  },
 });
 
 export default Anime;

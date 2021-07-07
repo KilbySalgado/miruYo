@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import Inicio from '../screens/Inicio';
+import CharacterAnime from '../screens/CharacterAnime';
 import TopAnime from '../screens/TopAnime';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 const Tab = createMaterialTopTabNavigator();
