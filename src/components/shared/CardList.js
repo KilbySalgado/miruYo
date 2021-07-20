@@ -6,23 +6,39 @@ import {
   Dimensions,
   Image,
   FlatList,
+  TouchableOpacity,
 } from "react-native";
 
 const { width, height } = Dimensions.get("window");
 
-const CardListCharacters = ({ animeCharacters, callback }) => {
+const CardList = ({ animeData, navigation, callback }) => {
   return (
       <FlatList
-        data={animeCharacters}
+        data={animeData}
         numColumns={2}
-        renderItem={({ item, i }) => (
+        renderItem={({ item, i}) => (
           <View>
-            <View style={styles.Card} key={i}>
+            <TouchableOpacity
+              style={styles.Card}
+              key={i}
+              onPress={() => {
+                navigation.navigate("Anime", { idAnime: item.mal_id });
+              }}
+            >
               <Image source={{ uri: item.image_url }} style={styles.images} />
               <View style={{ padding: 10 }}>
-                <Text style={styles.titulo}>{item.name}</Text>
+                <Text style={styles.titulo}>{item.title}</Text>
               </View>
-            </View>
+              <View
+                style={{
+                  position: "absolute",
+                  end: 5,
+                  top: 270,
+                }}
+              >
+                <Text style={styles.puntuacion}>{item.score}</Text>
+              </View>
+            </TouchableOpacity>
           </View>
         )}
       />
@@ -35,10 +51,13 @@ const styles = StyleSheet.create({
     width: width * 95,
     paddingLeft: 5,
     paddingRight: 5,
+    backgroundColor: "#ff5733",
+    borderRadius: 10,
   },
   images: {
     width: width * 0.35,
     height: 200,
+    marginBottom: 5,
     alignSelf: "center",
     borderRadius: 5,
     position: "relative",
@@ -68,4 +87,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CardListCharacters;
+export default CardList;

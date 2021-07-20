@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { AnimeCharacter } from "../../api";
-import CardList from "../shared/CardList";
 import CardListCharacters from "../shared/CardListCharacters";
 
 const CharacterAnime = ({ route }) => {
