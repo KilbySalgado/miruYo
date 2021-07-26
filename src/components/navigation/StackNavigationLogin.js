@@ -5,17 +5,17 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 const Stack = createStackNavigator();
 
-const StackNavigateLogin = () =>{
-    return(
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Signin"
-      screenOptions={{headerShown: false}}>
-        <Stack.Screen
-          name="Signin"
-          component={Signin}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+const StackNavigateLogin = () => {
+    return (
+        <NavigationContainer>
+            <Stack.Navigator initialRouteName="Signin"
+                screenOptions={{ headerShown: false }}>
+                <Stack.Screen
+                    name="Signin"
+                    component={Signin}
+                />
+            </Stack.Navigator>
+        </NavigationContainer>
     );
-  };
-  export default StackNavigateLogin;
+};
+export default StackNavigateLogin;
