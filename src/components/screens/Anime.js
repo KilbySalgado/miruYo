@@ -31,81 +31,80 @@ const Anime = ({ navigation, route }) => {
   //Api que me devuelva solo el anime que quiero por medio del id
 
   return (
-    <ScrollView>
-    <View style={styles.container}>
-      {anime ? (
-          <View style={styles.FormAnime}>
-            <Image source={{ uri: anime.image_url }} style={styles.images} />
-            <View style={styles.card}>
-            <View style={styles.titleForm}>
-              <Text style={{ fontSize: 18, fontWeight: "bold" }}>
-                {anime.title}
-              </Text>
-              <Text>{anime.title_japanese}</Text>
-              <Text style={{ marginTop: 3, marginBottom: 5 }}>
-                Score: {anime.score}
-              </Text>
-              <Text>Rank: {anime.rank}</Text>
-              <Button
-                title="Personajes"
-                onPress={() => {
-                  navigation.navigate("Character", {
-                    idAnimeCharacter: idAnime,
-                  });
-                }}
-              />
+    <ScrollView style={styles.container}>
+    <View style={styles.FormAnime}>
+        <Image source={{ uri: anime.image_url }} style={styles.images} />
+        <View style={styles.card}>
+            <View style={styles.info}>
+                <Text style={{ fontSize: 18, fontWeight: "bold", textAlign: "center", color: "#fff" }}>
+                    {anime.title}
+                </Text>
+                <Text style={{ textAlign: "center", marginBottom: 15, color: "#fff", }}>{anime.title_japanese}</Text>
+                <Text style={{ marginTop: 3, marginBottom: 5, color: "#1D2D50", backgroundColor: "#fff", borderRadius: 5, padding: 10, }}>
+                    Score: {anime.score} - Rank: {anime.rank} - Type: {anime.type}
+                </Text>
             </View>
-            <View style={{ padding: 25, textAlign: "justify",}}>
-              <Text>Synopsis:</Text>
-              <Text>{anime.synopsis}</Text>
-            </View>
-            </View>
-          </View>
-      ) : (
-        <View>
-          <Text>No hay</Text>
         </View>
-      )}
+        <View style={styles.synopsis}>
+            <Text style={{fontWeight: "bold",  color: "#222831"}}>Synopsis:</Text>
+            <Text style={{textAlign:"justify", marginTop: 10, color: "#222831"}}>{anime.synopsis}</Text>
+        </View>
     </View>
-    </ScrollView>
-  );
+</ScrollView>
+);
 };
-
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "#f6f6f6",
-    flex: 1,
-  },
-
-  images: {
-    width: width * 0.4,
-    height: height * 0.4,
-    justifyContent: "center",
-    alignSelf: "center",
-    borderRadius: 10,
-    marginTop: 15,
-    shadowOffset: { width: 4, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 3.84,
-    margin: 10,
-  },
-  titleForm: {
-    marginTop: 15,
-    justifyContent: "center",
-    alignSelf: "center",
-    textAlign: "center",
-    backgroundColor: "#fff",
-    borderRadius: 10,
-    padding: 15,
-  },
-  FormAnime: {
-    width: width,
-    height: height,
-  },
-  card: {
-    backgroundColor: "#ffc300",
-    borderRadius: 20,
-  },
+container: {
+backgroundColor: "#D8E3E7",
+flex: 1,
+width: width,
+},
+card: {
+width: width * 0.9,
+height: height * 0.3,
+alignSelf: "center",
+backgroundColor: "#133b5c",
+borderRadius: 20,
+position: "absolute",
+marginTop: height*0.4,
+zIndex: 1,
+},
+synopsis: {
+alignSelf: "center",
+backgroundColor: "#C3C9D6",
+padding: 20,
+marginTop: height*0.72,
+width: width * 0.9,
+borderRadius: 20,
+},
+images: {
+width: width * 0.5,
+height: height * 0.4,
+borderRadius: 10,
+marginTop: 40,
+alignSelf: "center",
+shadowOffset: { width: 4, height: 4 },
+position: "absolute",
+shadowOpacity: 0.3,
+shadowRadius: 3.84,
+margin: 10,
+zIndex: 3,
+borderWidth:  5,
+borderColor: "#D8E3E7",
+},
+info: {
+marginTop: height*0.074,
+justifyContent: "center",
+alignSelf: "center",
+textAlign: "center",
+backgroundColor: "#1e5f74",
+borderRadius: 10,
+padding: 15,
+},
+FormAnime: {
+width: width,
+position: "relative",
+},
 });
 
 export default Anime;
