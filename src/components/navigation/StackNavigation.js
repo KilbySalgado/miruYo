@@ -11,7 +11,8 @@ const Stack = createStackNavigator();
 const StackNavigate = () =>{
     return(
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Tab">
+      <Stack.Navigator initialRouteName="Tab"
+      screenOptions={{headerShown: false}}>
         <Stack.Screen
             name= "Tab"
             component={TabNav}
@@ -31,5 +32,4 @@ const StackNavigate = () =>{
     </NavigationContainer>
     );
 };
-
 export default StackNavigate;
