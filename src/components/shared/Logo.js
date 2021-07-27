@@ -2,11 +2,11 @@ import React from "react";
 import { Dimensions, StyleSheet, View } from "react-native";
 import { Image } from "react-native-elements";
 
-const { width, height } = Dimensions.get("screen");
+const { width, height } = Dimensions.get("window");
 
 const Logo = () => {
     return (
-        <View>
+        <View style={{alignSelf: "center"}}>
             <Image
                 style={styles.logo}
                 source={require("../../../assets/miruYo.png")}
@@ -17,8 +17,8 @@ const Logo = () => {
 
 const styles = StyleSheet.create({
     logo: {
-        width: 100,
-        height: 100,
+        width: width * 0.20,
+        height: height * 0.20,
         resizeMode: "contain",
     },
 });

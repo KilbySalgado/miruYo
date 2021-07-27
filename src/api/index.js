@@ -1,7 +1,7 @@
 //Se trae 15 animes ordenados por el id en orden Ascendente
 export const AnimeApis = async () => {
   try {
-    const endpoint = `https://api.jikan.moe/v3/search/anime?q=&order_by=id&sort=asc&limit=15`;
+    const endpoint = `https://api.jikan.moe/v3/search/anime?q=&order_by=id&sort=asc&limit=20`;
     const response = await fetch(endpoint);
     const data = await response.json();
     return data.results;
