@@ -1,12 +1,10 @@
-import { StatusBar } from "expo-status-bar";
-import React from "react";
-import Inicio from "./src/compomentes/Inicio";
-
+import React from 'react';
+import StackNavigate from './src/components/navigation/StackNavigation';
+import StackNavigateLogin from './src/components/navigation/StackNavigationLogin';
 export default function App() {
   return (
-    <>
-      <Inicio />
-      <StatusBar style="auto" />
-    </>
+    <StackNavigateLogin>
+      <StackNavigate />
+    </StackNavigateLogin>
   );
 }

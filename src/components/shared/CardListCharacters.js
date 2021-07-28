@@ -12,7 +12,6 @@ const { width, height } = Dimensions.get("window");
 
 const CardListCharacters = ({ animeCharacters, callback }) => {
   return (
-    <View style={styles.container}>
       <FlatList
         data={animeCharacters}
         numColumns={2}
@@ -27,7 +26,6 @@ const CardListCharacters = ({ animeCharacters, callback }) => {
           </View>
         )}
       />
-    </View>
   );
 };
 
@@ -39,7 +37,7 @@ const styles = StyleSheet.create({
     paddingRight: 5,
   },
   images: {
-    width: width * 0.45,
+    width: width * 0.35,
     height: 200,
     alignSelf: "center",
     borderRadius: 5,
