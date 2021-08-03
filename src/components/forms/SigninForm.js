@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import { StyleSheet, View, Dimensions } from "react-native";
-import { Button, Caption, Text, TextInput } from "react-native-paper";
+import {Text} from "react-native-paper";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { Input } from "react-native-elements";
+import { Input, Button } from "react-native-elements";
 import { Context as AuthContext } from "../../providers/AuthContext";
 
 const { height, width } = Dimensions.get("window");
@@ -57,11 +57,10 @@ function SigninForm() {
             </View>
             <Button
                 mode="contained"
-                style={styles.boton}
+                buttonStyle={styles.boton}
                 onPress={() => handleVerify("signin")}
-            >
-                Signin
-            </Button>
+                title="Sign in"
+            />
         </View>
     );
 }
