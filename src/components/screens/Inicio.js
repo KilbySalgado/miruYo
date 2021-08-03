@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, View, Text, Dimensions, ScrollView, Image } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { SearchBar } from "react-native-screens";
 import { AnimeApis } from "../../api";
 import CardList from "../shared/CardList";
@@ -26,7 +27,9 @@ const Inicio = ({ navigation }) => {
           <View style={styles.recomendados}>
             <View>
               <Text style={{ fontSize: 20, paddingLeft: 15, padding: 10, color: "#fff", fontWeight: "bold", }}>Animes</Text>
-              <CardList animeData={animeData} navigation={navigation} />
+              <SafeAreaView>
+                <CardList animeData={animeData} navigation={navigation} />
+              </SafeAreaView>
             </View>
           </View>
         </View>
@@ -53,7 +56,7 @@ const styles = StyleSheet.create({
     borderTopStartRadius: 10,
     borderTopEndRadius: 10,
     marginTop: height * 0.30,
-    zIndex:1,
+    zIndex: 1,
 
   },
   recomendados: {
@@ -65,7 +68,7 @@ const styles = StyleSheet.create({
     //margin: 10,
   },
   imagen: {
-    width: width*0.97,
+    width: width * 0.97,
     height: height * 0.3,
     alignSelf: "center",
     marginTop: 5,

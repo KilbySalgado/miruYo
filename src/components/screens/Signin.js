@@ -1,4 +1,4 @@
-import React, { useContext,useState } from "react";
+import React, { useContext, useState } from "react";
 import { StyleSheet, TouchableOpacity, View, ImageBackground, Dimensions } from "react-native";
 import { Text } from "react-native-paper";
 import Logo from "../shared/Logo";
@@ -9,7 +9,7 @@ import { Button } from "react-native-elements";
 import getEnvVars from "../../../enviroment";
 import * as Google from "expo-google-app-auth";
 
-const {width,height} = Dimensions.get("window");
+const { width, height } = Dimensions.get("window");
 
 const Signin = ({ navigation }) => {
     const { state, signInWithGoogle, clearErrorMessage } = useContext(AuthContext);
@@ -37,7 +37,7 @@ const Signin = ({ navigation }) => {
     }
     return (
         <ImageBackground
-        source={require("../../../assets/fondos.png")}
+            source={require("../../../assets/fondos.png")}
             resizeMode="cover" style={styles.background}
         >
             <View style={styles.container}>
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     o: {
         textAlign: "center",
         marginTop: 10,
-        color:"#fff",
+        color: "#fff",
         marginBottom: 20,
     },
     buttonGoogle: {

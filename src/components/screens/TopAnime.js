@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, Dimensions } from "react-native";
 import { AnimeTop } from "../../api";
 import CardList from "../shared/CardList";
+
+const {width, height} = Dimensions.get("window");
 
 const TopAnime = ({ navigation }) => {
   const [animeTop, setAnimeTop] = useState([]);
@@ -28,12 +30,11 @@ const TopAnime = ({ navigation }) => {
   );
 };
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "#f6f6f6",
-    flex: 1,
-    alignContent: "center",
-    justifyContent: "center",
-    marginTop: 10,
-  },
+    container: {
+      backgroundColor: "#D8E3E7",
+      flex: 1,
+      width: width,
+      height: height,
+    },
 });
 export default TopAnime;

@@ -12,7 +12,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 const { width, height } = Dimensions.get("window");
 
-const CardList = ({ animeData, navigation, callback }) => {
+const CardList = ({ animeData, navigation }) => {
   return (
     <FlatList
       data={animeData}

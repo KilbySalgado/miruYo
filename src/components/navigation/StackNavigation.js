@@ -8,7 +8,8 @@ import TabNav from "./TabNavigation";
 import Signin from "../screens/Signin";
 import { Context as AuthContext } from "../../providers/AuthContext";
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import Signup from "../screens/Signup"
+import Signup from "../screens/Signup";
+import forgotPassword from "../screens/forgotPassword";
 
 const Stack = createStackNavigator();
 
@@ -61,6 +62,11 @@ const StackNavigate = () => {
               <Stack.Screen
                 name="Signup"
                 component={Signup}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="forgotPassword"
+                component={forgotPassword}
                 options={{ headerShown: false }}
               />
             </Stack.Navigator>
