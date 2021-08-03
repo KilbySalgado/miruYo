@@ -3,6 +3,7 @@ import { StyleSheet, View } from "react-native";
 import { Button, Caption, Text, TextInput } from "react-native-paper";
 import { Context as AuthContext } from "../../providers/AuthContext";
 import { validate } from "email-validator";
+
 function SignupForm() {
     const { state, signup } = useContext(AuthContext);
     const [fullname, setFullname] = useState("");
