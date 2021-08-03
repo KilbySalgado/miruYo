@@ -8,56 +8,54 @@ import {
   FlatList,
   TouchableOpacity,
 } from "react-native";
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const { width, height } = Dimensions.get("window");
 
 const CardList = ({ animeData, navigation, callback }) => {
   return (
-      <FlatList
-        data={animeData}
-        numColumns={2}
-        renderItem={({ item, i}) => (
-          <View>
-            <TouchableOpacity
-              style={styles.Card}
-              key={i}
-              onPress={() => {
-                navigation.navigate("Anime", { idAnime: item.mal_id });
+    <FlatList
+      data={animeData}
+      style={styles.container}
+      numColumns={2}
+      renderItem={({ item, i }) => (
+        <View>
+          <TouchableOpacity
+            style={styles.Card}
+            key={i}
+            onPress={() => {
+              navigation.navigate("Anime", { idAnime: item.mal_id });
+            }}
+          >
+            <Image source={{ uri: item.image_url }} style={styles.images} />
+            <View style={{ padding: 5 }}>
+              <Text style={styles.titulo}>{item.title}</Text>
+            </View>
+            <View
+              style={{position: "absolute", alignSelf: "flex-end", marginTop: height * 0.36
               }}
             >
-              <Image source={{ uri: item.image_url }} style={styles.images} />
-              <View style={{ padding: 10 }}>
-                <Text style={styles.titulo}>{item.title}</Text>
-              </View>
-              <View
-                style={{
-                  position: "absolute",
-                  end: 5,
-                  top: 270,
-                }}
-              >
-                <Text style={styles.puntuacion}>{item.score}</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-        )}
-      />
+              <Text style={styles.puntuacion}>{item.score}</Text>
+              <MaterialCommunityIcons name="star" color={"#FFD700"} size={18} style={{ position: "absolute", alignSelf: "flex-end" }} />
+            </View>
+          </TouchableOpacity>
+        </View>
+
+      )}
+    />
+
   );
 };
 
 const styles = StyleSheet.create({
+
   container: {
-    flex: 1,
-    width: width * 95,
-    paddingLeft: 5,
-    paddingRight: 5,
-    backgroundColor: "#ff5733",
-    borderRadius: 10,
+    alignSelf: "center",
   },
+
   images: {
     width: width * 0.35,
-    height: 200,
-    marginBottom: 5,
+    height: height * 0.28,
     alignSelf: "center",
     borderRadius: 5,
     position: "relative",
@@ -66,24 +64,25 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "#000",
     fontWeight: "bold",
+    paddingRight: 20,
   },
   titulo: {
     textAlign: "center",
     color: "#000",
-    marginTop: 5,
+    fontWeight: "bold",
+
   },
   Card: {
-    marginLeft: 10,
-    marginTop: 10,
-    marginBottom: 1,
-    width: width * 0.45,
+    margin: 5,
+    padding: 10,
+    width: width * 0.42,
     height: height * 0.4,
     borderRadius: 5,
     backgroundColor: "#fff",
     shadowOffset: { width: 4, height: 4 },
     shadowOpacity: 0.3,
     shadowRadius: 3.84,
-    marginBottom: 10,
+    marginBottom: 5,
   },
 });
 
