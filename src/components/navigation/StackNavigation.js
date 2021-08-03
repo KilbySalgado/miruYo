@@ -5,14 +5,19 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import TabNav from "./TabNavigation";
 import Signin from "../screens/Signin";
+import { Button } from "react-native-paper";
 import Signup from "../screens/Signup";
 import { Context as AuthContext } from "../../providers/AuthContext";
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
 
 const Stack = createStackNavigator();
 
 const StackNavigate = () => {
 
   const { state, persistLogin } = useContext(AuthContext);
+  const { signout } = useContext(AuthContext)
+
   useEffect(() => {
     persistLogin();
   }, []);
@@ -26,9 +31,14 @@ const StackNavigate = () => {
               <Stack.Screen
                 name="Tab"
                 component={TabNav}
-                options={{
-                  title: '', headerStyle: { backgroundColor: "#1d2d50" },
-                  headerTitleStyle: { color: "#fff", fontWeight: "bold" }
+                options={{title: 'miruYo',
+                  headerRight: () => (
+                    <Button
+                      style={{marginRight: 5}}
+                      onPress={() => { signout() }}>
+                      <MaterialCommunityIcons name="exit-to-app" color={"#1d2d50"} size={30} />
+                      </Button>
+                  )
                 }}
               />
               <Stack.Screen
@@ -39,11 +49,6 @@ const StackNavigate = () => {
               <Stack.Screen
                 name="Anime"
                 component={Anime}
-                options={{
-                  title: 'Anime Info',
-                  headerStyle: { backgroundColor: "#1d2d50" },
-                  headerTitleStyle: { color: "#fff", fontWeight: "bold" }
-                }}
               />
             </Stack.Navigator>
           ) : (
@@ -56,6 +61,7 @@ const StackNavigate = () => {
               <Stack.Screen
                 name="Signup"
                 component={Signup}
+                options={{ headerShown: false }}
               />
             </Stack.Navigator>
           )}
