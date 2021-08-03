@@ -1,12 +1,11 @@
 import React, { useContext, useEffect } from "react";
 import Inicio from "../screens/Inicio";
 import Anime from "../screens/Anime";
-import { StyleSheet, TouchableOpacity } from "react-native";
+import { TouchableOpacity } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import TabNav from "./TabNavigation";
 import Signin from "../screens/Signin";
-import { Button } from "react-native-elements";
 import { Context as AuthContext } from "../../providers/AuthContext";
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
