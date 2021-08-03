@@ -8,7 +8,7 @@ import TabNav from "./TabNavigation";
 import Signin from "../screens/Signin";
 import { Context as AuthContext } from "../../providers/AuthContext";
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
+import Signup from "../screens/Signup"
 
 const Stack = createStackNavigator();
 
@@ -49,11 +49,6 @@ const StackNavigate = () => {
               <Stack.Screen
                 name="Anime"
                 component={Anime}
-                options={{
-                  title: 'Anime Info',
-                  headerStyle: { backgroundColor: "#1d2d50" },
-                  headerTitleStyle: { color: "#fff", fontWeight: "bold" }
-                }}
               />
             </Stack.Navigator>
           ) : (
@@ -61,6 +56,11 @@ const StackNavigate = () => {
               <Stack.Screen
                 name="Signin"
                 component={Signin}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="Signup"
+                component={Signup}
                 options={{ headerShown: false }}
               />
             </Stack.Navigator>
