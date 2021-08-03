@@ -1,7 +1,11 @@
 import React, { useState, useContext } from "react";
-import { StyleSheet, View } from "react-native";
-import { Button, Caption, Text, TextInput } from "react-native-paper";
+import { StyleSheet, View, Dimensions } from "react-native";
+import {Text} from "react-native-paper";
+import Icon from "react-native-vector-icons/FontAwesome";
+import { Input, Button } from "react-native-elements";
 import { Context as AuthContext } from "../../providers/AuthContext";
+
+const { height, width } = Dimensions.get("window");
 
 function SigninForm() {
     const { state, signin } = useContext(AuthContext);
@@ -28,41 +32,52 @@ function SigninForm() {
     return (
         <View>
             {state.errorMessage != null && <Text>{state.errorMessage}</Text>}
-            <TextInput
-                mode="outlined"
-                label="Email"
-                autoCapitalize="none"
-                onChangeText={setEmail}
-                value={email}
-                onBlur={() => handleVerify("email")}
-            />
-            {emailError && (
-                <Caption>Por favor ingresa tu cuenta de correo electrónico</Caption>
-            )}
-            <TextInput
-                mode="outlined"
-                label="Password"
-                autoCapitalize="none"
-                secureTextEntry
-                onChangeText={setPassword}
-                value={password}
-                onBlur={() => handleVerify("password")}
-            />
-            {passwordError && <Caption>Por favor ingresa tu contraseña</Caption>}
+            <View style={styles.inputs}>
+                <Input
+                    onChangeText={setEmail}
+                    placeholder="email@example.com"
+                    leftIcon={<Icon name="envelope" style={{ fontSize: 25, color: "#393E46", padding: 5 }} />}
+                    label='Email'
+                    autoCapitalize="none"
+                    value={email}
+                    onBlur={() => handleVerify("email")} />
+                {emailError && <Text style={{ color: "#db3236", marginTop: 10, fontStyle:"italic", marginBottom: 10, }}>*Por favor ingresa tu correo</Text>}
+            </View>
+
+            <View style={styles.inputs}>
+                <Input
+                    onChangeText={setPassword}
+                    leftIcon={<Icon name="lock" style={{ fontSize: 25, color: "#393E46", padding: 5 }} />}
+                    label='Password'
+                    secureTextEntry
+                    autoCapitalize="none"
+                    value={password}
+                    onBlur={() => handleVerify("password")} />
+                {passwordError && <Text style={{ color: "#db3236", marginTop: 10, fontStyle:"italic" }}>*Por favor ingresa tu contraseña</Text>}
+            </View>
             <Button
                 mode="contained"
-                style={styles.button}
+                buttonStyle={styles.boton}
                 onPress={() => handleVerify("signin")}
-            >
-                Signin
-            </Button>
+                title="Sign in"
+            />
         </View>
     );
 }
 const styles = StyleSheet.create({
-    button: {
-        marginTop: 20,
-        marginBottom: 20,
+    inputs: {
+        backgroundColor: "#fff",
+        borderRadius: 10,
+        marginBottom: 30,
+        height: height * 0.1,
+    },
+    boton: {
+        width: width * 0.3,
+        height: height * 0.05,
+        justifyContent: "center",
+        backgroundColor:"#133b5c",
+        marginLeft: width * 0.64,
+        borderRadius: 20,
     },
 });
 export default SigninForm;

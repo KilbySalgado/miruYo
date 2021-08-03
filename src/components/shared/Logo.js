@@ -6,7 +6,7 @@ const { width, height } = Dimensions.get("window");
 
 const Logo = () => {
     return (
-        <View style={{alignSelf: "center"}}>
+        <View style={{backgroundColor: "#fff" ,borderRadius:10,alignSelf: "center", width:width *0.28, height:width * 0.28, marginBottom: width*0.1,alignItems:"center", justifyContent:"center"}}>
             <Image
                 style={styles.logo}
                 source={require("../../../assets/miruYo.png")}
@@ -17,8 +17,8 @@ const Logo = () => {
 
 const styles = StyleSheet.create({
     logo: {
-        width: width * 0.20,
-        height: height * 0.20,
+        width: 100,
+        height: 100,
         resizeMode: "contain",
     },
 });
